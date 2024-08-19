@@ -1,10 +1,10 @@
 import {EN, LOCALES} from "./constants.js";
 
-// Saves options to chrome.storage
+// Saves options to browser.storage
 const saveOptions = () => {
   const lang = document.getElementById('lang').value;
 
-  chrome.storage.sync.set(
+  browser.storage.sync.set(
     { lang },
     () => {
       // Update status to let user know options were saved.
@@ -18,9 +18,9 @@ const saveOptions = () => {
 };
 
 // Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
+// stored in browser.storage.
 const restoreOptions = () => {
-  chrome.storage.sync.get(
+  browser.storage.sync.get(
     { lang: EN },
     (items) => {
       document.getElementById('lang').value = items.lang;

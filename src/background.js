@@ -4,20 +4,20 @@ async function quickAdd(text, lang) {
   const url = createEventUrl(text, lang);
 
   if (url) {
-    chrome.tabs.create({url});
+    browser.tabs.create({url});
   }
 }
 
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.contextMenus.create({
+browser.runtime.onInstalled.addListener(() => {
+  browser.contextMenus.create({
     id: 'id',
     title: 'Add to calendar: “%s”',
     contexts: ['selection'],
   });
 });
 
-chrome.contextMenus.onClicked.addListener(async (info) => {
-  const storage = await chrome.storage.sync.get()
+browser.contextMenus.onClicked.addListener(async (info) => {
+  const storage = await browser.storage.sync.get()
   const lang = storage.lang
   quickAdd(info.selectionText, lang)
 });
