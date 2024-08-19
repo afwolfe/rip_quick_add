@@ -30,12 +30,14 @@ const restoreOptions = () => {
 
 const setLocalesOptions = () => {
   const langSelector = document.getElementById('lang');
-  // Empty select inner html
-  langSelector.innerHTML = ""
+  langSelector.innerHTML = '';
 
-  Object.values(LOCALES).forEach(({label, value}) => {
-    langSelector.innerHTML += `<option value='${value}'>${label}</option>`
-  })
+  Object.values(LOCALES).forEach(({ label, value }) => {
+    const option = document.createElement('option');
+    option.value = value;
+    option.text = label;
+    langSelector.appendChild(option);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', setLocalesOptions);
