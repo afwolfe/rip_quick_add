@@ -21,6 +21,7 @@ Alternatively, events can be created by clicking the app icon and entering the e
 User can choose the language in which they would like to parse the input text in extension options page.
 
 Currently supported languages are:
+
 * English
 * French
 * Dutch
@@ -37,21 +38,31 @@ Supported languages depends on the [Chrono](https://github.com/wanasit/chrono?ta
 ## Usage
 
 ### Chrome Extension
+
 Install the Chrome extension from [Chrome Web Store][webstore].
 
+### Firefox Extension
+
+Install the Firefox extension from the Firefox Add-ons site (TBD).
+
 ### Web App
+
 Alternatively, I have a running implementation [on my website][max]. This is useful when you're on a device without Chrome extensions, like a phone.
 
 #### Local
+
 If you want to develop locally:
 
-```
+```shell
 yarn install
 ```
 
 This app uses rollup transpiling to use the JavaScript modules pattern.
+
 * `yarn build`: transpile all scripts into `extension` directory
 * `yarn watch`: transpile all scripts into `extension` directory and re-transpile automatically on changes
+* `yarn firefox`: runs `yarn build` and `web-ext build` to build the extension for Firefox.
+* `yarn firefox-watch`: runs `yarn watch` and `web-ext run` to debug the extension in Firefox.
 
 ## Documentation
 
