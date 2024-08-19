@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c -i src/background.js -o chrome-extension/background.js && rollup -c -i src/popup.js -o chrome-extension/popup.js && rollup -c -i src/options.js -o chrome-extension/options.js",
-    "watch": "rollup -c --watch -i src/background.js -o chrome-extension/background.js & rollup -c --watch -i src/popup.js -o chrome-extension/popup.js & rollup --watch -c -i src/options.js -o chrome-extension/options.js"
+    "build": "rollup -c -i src/background.js -o extension/background.js && rollup -c -i src/popup.js -o extension/popup.js && rollup -c -i src/options.js -o extension/options.js",
+    "watch": "rollup -c --watch -i src/background.js -o extension/background.js & rollup -c --watch -i src/popup.js -o extension/popup.js & rollup --watch -c -i src/options.js -o extension/options.js",
+    "firefox": "yarn build && web-ext build -s extension/ --overwrite-dest",
+    "firefox-watch": "yarn run watch & web-ext run -s extension/"
   },
   "type": "module",
   "author": "Max Timkovich",
@@ -17,6 +19,7 @@
     "rollup": "^4.12.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-multi-input": "^1.4.1",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "web-ext": "^8.2.0"
   }
 }

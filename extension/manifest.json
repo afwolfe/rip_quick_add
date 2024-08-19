@@ -7,8 +7,13 @@
     "contextMenus",
     "storage"
   ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "rip_quick_add@timkovi.ch"
+    }
+  },
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
   "options_ui": {
     "page": "options.html",
